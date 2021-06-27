@@ -1,7 +1,5 @@
 #include<stdio.h>
 #include<conio.h>
-#include<string.h>
-#include<math.h>
 
 float add(int x,float y)
 {

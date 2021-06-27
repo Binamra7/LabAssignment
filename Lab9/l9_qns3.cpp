@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
-
 int f=1;
-
 int fac(int a)
 {
     f=f*a;
@@ -11,7 +9,6 @@ int fac(int a)
         fac(a);
     return f;
 }
-
 int main()
 {
     printf("Enter a number:");
