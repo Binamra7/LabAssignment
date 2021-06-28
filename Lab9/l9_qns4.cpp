@@ -10,7 +10,7 @@ void fib(int f)
     a=b;
     b=c;
     f--;
-    if(f>=0)
+    if(f>=1)
         fib(f);
 }
 
