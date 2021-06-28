@@ -1,43 +1,49 @@
 #include<stdio.h>
 #include<conio.h>
 
-void sumOfRows(int a[100][100],int x)
+void sumOfRows(int a[100][100],int x,int y)
 {
-    int sum[100];
+    int sum=0;
+    //finds the sum of each rows
     for(int i=0;i<x;i++)
     {
-        sum[i] = 0;
-        for (int j = 0;j<x;j++)
+        for (int j = 0;j<y;j++)
         {
-            sum[i]+=a[i][j];
+            sum+=a[i][j];
         }
     }
+    //prints the matrix
     printf("The matrix is:\n");
     for(int i=0;i<x;i++)
     {
-        for (int j = 0;j<x;j++)
+        for (int j = 0;j<y;j++)
         {
             printf("%d\t", a[i][j]);
         }
         printf("\n");
     }
-    for (int i = 0; i < x;i++)
-        printf("Row %d sum=%d\n", i + 1, sum[i]);
+    //prints the sum
+    // for (int i = 0; i < x;i++)
+        printf("sum=%d\n", sum);
+    
 }
 
 int main()
 {
-    int n[100][100],dim;
-    printf("Enter the dimension: ");
-    scanf("%d", &dim);
-    for (int i = 0; i < dim;i++)
+    int n[100][100],row,col;
+    printf("Enter number of rows:");
+    scanf("%d", &row);
+    printf("Enter number of column:");
+    scanf("%d", &col);
+    //input
+    for (int i = 0; i < row;i++)
     {
-        for (int j = 0; j < dim;j++)
-        {
-            printf("Enter n[%d][%d]:", i, j);
-            scanf("%d", &n[i][j]);
-        }
+       for (int j = 0; j < col;j++)
+       {
+           printf("Enter n[%d][%d]:", i, j);
+           scanf("%d", &n[i][j]);
+       }
     }
-    sumOfRows(n, dim);
+    sumOfRows(n, row, col);
     return 0;
 }
