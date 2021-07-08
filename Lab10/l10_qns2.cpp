@@ -17,6 +17,8 @@ int main()
         printf("Please enter valid number:");
         goto top;
     }
+
+    //input
     for (int i = 0;i<n;i++)
     {
         printf("Enter the account number:");
@@ -30,6 +32,8 @@ int main()
         
 
     }
+
+    //prints for the first time
    printf("Account No.\tName\t\t\tBalance\n");
 
     for (int i = 0; i < n;i++)
@@ -40,6 +44,7 @@ int main()
         }
     }
 
+    // process for withdraw or deposit
     int index,choose, acNum;
 
     printf("Enter the account number:");
@@ -71,12 +76,14 @@ int main()
             printf("Withdrawl successuful\n");
         }
         break;
+
     case 2:
         printf("Enter the amount you want to deposit:");
         int depo;
         scanf("%d", &depo);
         info[index].balance += depo;
         break;
+
     default:
         break;
     }
@@ -84,11 +91,8 @@ int main()
     printf("Account No.\tName\t\t\tBalance\n");
 
     for (int i = 0; i < n;i++)
-    {
-        
+    {        
             printf("%d\t\t%s\t\t\t%d\n",info[i].accNum, info[i].name, info[i].balance);
-    
     }
-
     return 0;
 }
