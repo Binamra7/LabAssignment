@@ -4,7 +4,7 @@
 
 struct student
 {
-    int *roll, *s1, *s2, *s3, *s4, *s5;
+    int *roll, *marks[5];
     char name[20];
 };
 
@@ -24,13 +24,28 @@ int main()
         fflush(stdin);
         gets(ptr1->name);
         fflush(stdin);
-        scanf("%d%d%d%d%d", &ptr1->s1, &ptr1->s2, &ptr1->s3, &ptr1->s4, &ptr1->s5);
+        for (int j = 0; j < 5; j++)
+        {
+            printf("\nEnter %d marks:", j + 1);
+            scanf("%d", &ptr1->marks[j]);
+        }
         ptr1++;
     }
-    printf("Roll\tName\tSub1\tSub2\tSub3\tSub4\tSub5\n");
+    printf("Roll\tName\tSub1\tSub2\tSub3\tSub4\tSub5\tTotal\tPercentage\n");
+    printf("---------------------------------------------------------------------------\n");
     for (int i = 0; i < n; i++)
     {
-        printf("%d\t%s\t%d\t%d\t%d\t%d\t%d\n", ptr2->roll, ptr2->name, ptr2->s1, ptr2->s2, ptr2->s3, ptr2->s4, ptr2->s5);
+        // int total = 0;
+        printf("%d\t%s\t", ptr2->roll, ptr2->name);
+        for (int j = 0; j < 5; j++)
+        {
+            // printf("%d\t%d\t%d\t%d\t%d\n", ptr2->marks[j], ptr2->marks[j], ptr2->marks[j], ptr2->marks[j], ptr2->marks[j]);
+            printf("%d\t", ptr2->marks[j]);
+            // total += *(ptr2->marks[j]);
+        }
+        // float per = total / 5;
+        // printf("%d\t%f", total, per);
+        printf("\n");
         ptr2++;
     }
 
