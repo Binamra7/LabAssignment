@@ -7,7 +7,7 @@ int main()
     int sum = 0, n, *ptr1, *ptr2;
     printf("Enter no?");
     scanf("%d", &n);
-    ptr1 = (int *)malloc(sizeof(int) * n);
+    ptr1 = (short int *)malloc(sizeof(int) * n);
     ptr2 = ptr1;
     for (int i = 0; i < n; i++)
     {
