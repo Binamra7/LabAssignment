@@ -19,7 +19,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         printf("For student %d:\n", i + 1);
-        printf("Enter roll,name and marks of 5 sub:");
+        printf("Enter roll,name and marks of 5 different sub:");
         scanf("%d", &ptr1->roll);
         fflush(stdin);
         gets(ptr1->name);
