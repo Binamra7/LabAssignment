@@ -15,7 +15,7 @@ int main()
     printf("a[i] \t Memory Location \t Value\n");
     for (int i = 0; i < n; i++)
     {
-        printf("a[%d]\t%u\t\t\t%d\n", i, ptr, *ptr);
+        printf("a[%d]\t%d\t\t\t%d\n", i, ptr, *ptr);
         sum += *ptr;
         ptr += 1;
     }

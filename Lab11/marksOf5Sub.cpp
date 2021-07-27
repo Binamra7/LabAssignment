@@ -10,7 +10,7 @@ struct student
 
 int main()
 {
-    struct student info[500], *ptr1, *ptr2;
+    struct student *ptr1, *ptr2;
     int n;
     printf("Enter the number of students:");
     scanf("%d", &n);
