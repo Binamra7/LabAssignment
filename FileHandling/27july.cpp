@@ -19,5 +19,6 @@ int main()
     fp = fopen("Number.txt", "r");
     while((num=getw(fp))!=EOF)
         printf("%d\n", num);
+    fclose(fp);
     return 0;
 }

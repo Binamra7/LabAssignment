@@ -9,6 +9,7 @@ struct students
 
 int main()
 {
+    
     struct students info[450];
     printf("Enter the number of students:");
     int n;
