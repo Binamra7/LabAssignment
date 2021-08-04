@@ -16,8 +16,8 @@ int main()
     }
     fclose(fp);
     fp = fopen("oddOrEven.txt", "r");
-    even = fopen("EVEN.txt", "a");
-    odd = fopen("ODD.txt", "a");
+    even = fopen("EVEN.txt", "w");
+    odd = fopen("ODD.txt", "w");
 
     while ((num = getw(fp)) != EOF)
     {
@@ -27,6 +27,12 @@ int main()
             putw(num, odd);
     }
     fclose(fp);
+    fclose(even);
+    fclose(odd);
+
+    even = fopen("EVEN.txt", "r");
+    odd = fopen("ODD.txt", "r");
+
     printf("EVEN numbers are:\n");
     while ((num = getw(even)) != EOF)
         printf("%d\n", num);
