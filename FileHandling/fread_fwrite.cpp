@@ -1,8 +1,9 @@
-#include<stdio.h>
-#include<conio.h>
+#include <stdio.h>
+#include <conio.h>
 
-struct student {
-    int age,clas;
+struct student
+{
+    int age, clas;
     char name[30];
 };
 
@@ -10,13 +11,13 @@ int main()
 {
     struct student rec;
     FILE *fp;
-    int n, i;
+    int n;
     printf("How many students?");
     scanf("%d", &n);
-    fp = fopen("student.txt", "a+");
-    for (int i = 1; i <= n;i++)
+    fp = fopen("student12.txt", "a+");
+    for (int i = 1; i <= n; i++)
     {
-        printf("Enter %d Name,age and class:",i);
+        printf("Enter %d Name,age and class:", i);
         fflush(stdin);
         gets(rec.name);
         fflush(stdin);
@@ -24,9 +25,10 @@ int main()
         fwrite(&rec, sizeof(rec), 1, fp);
     }
     rewind(fp);
+
     printf("\nName\tAge\tClass\n");
-    printf("________________________________________________\n");
-    while(fread(&rec,sizeof(rec),1,fp)==1)
+    printf("___________________________\n");
+    while (fread(&rec, sizeof(rec), 1, fp) == 1)
         printf("%s\t%d\t%d\n", rec.name, rec.age, rec.clas);
     fclose(fp);
 
