@@ -15,7 +15,7 @@ int main()
 
     
 
-    fprintf(fp, "%s%d", name, salary);
+    fprintf(fp, "%s\n%d", name, salary);
     fclose(fp);
 
     fp = fopen("data.txt", "r");
