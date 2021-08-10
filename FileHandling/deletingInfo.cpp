@@ -2,7 +2,6 @@
 #include<conio.h>
 #include<string.h>
 
-#define ll long long;
 
 struct student{
     int ph;
