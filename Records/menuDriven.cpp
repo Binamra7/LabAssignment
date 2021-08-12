@@ -36,8 +36,6 @@ int main()
                 gets(info.name);
                 fflush(stdin);
                 scanf("%d%d", &info.age, &info.grade);
-                fflush(stdin);
-
                 fwrite(&info, sizeof(info), 1, fp);
             }
             fclose(fp);
@@ -53,8 +51,8 @@ int main()
             printf("___________________________________\n");
             while (fread(&info, sizeof(info), 1, fp) == 1)
                 printf("%s\t\t%d\t\t%d\n", info.name, info.age, info.grade);
-            break;
             fclose(fp);
+            break;
 
 
 
@@ -82,17 +80,52 @@ int main()
             printf("\nThe record after removing:\n");
             printf("\nName\t\tAge\t\tGrade\n");
             printf("____________________________________\n");
-            fp1 = fopen("student.txt", "r");
-            while (fread(&info, sizeof(info), 1, fp1) == 1)
+            fp = fopen("student.txt", "r");
+            while (fread(&info, sizeof(info), 1, fp) == 1)
             {
                 printf("%s\t\t%d\t\t%d\n", info.name, info.age, info.grade);
             }
-            fclose(fp1);
+            fclose(fp);
             break;
 
 
         //4.update 
         case 4:
+            fflush(stdin);
+            printf("Enter the name you want to update:");
+            gets(queryName);
+            fp = fopen("student.txt", "a+");
+            fp1 = fopen("temp.txt", "a+");
+
+            while (fread(&info, sizeof(info), 1, fp) == 1)
+            {
+                if (strcmp(queryName, info.name) != 0)
+                {
+                    fwrite(&info, sizeof(info), 1, fp1);
+                }
+            }
+            printf("Enter the new data(name/age/grade):");
+            fflush(stdin);
+            gets(info.name);
+            fflush(stdin);
+            scanf("%d%d", &info.age, &info.grade);
+            fwrite(&info, sizeof(info), 1, fp);
+
+            fclose(fp);
+            fclose(fp1);
+
+            remove("student.txt");
+            rename("temp.txt", "student.txt");
+            printf("\nThe record after removing:\n");
+            printf("\nName\t\tAge\t\tGrade\n");
+            printf("____________________________________\n");
+            fp = fopen("student.txt", "r");
+            while (fread(&info, sizeof(info), 1, fp) == 1)
+            {
+                printf("%s\t\t%d\t\t%d\n", info.name, info.age, info.grade);
+            }
+            fclose(fp);
+            break;
 
         //5.exit
         case 5:
