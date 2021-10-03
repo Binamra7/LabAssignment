@@ -3,7 +3,7 @@
 
 struct student
 {
-    int age, clas;
+    int phone, clas;
     char name[30];
 };
 
@@ -17,19 +17,19 @@ int main()
     fp = fopen("student12.txt", "a+");
     for (int i = 1; i <= n; i++)
     {
-        printf("Enter %d Name,age and class:", i);
+        printf("Enter %d Name,phone and class:", i);
         fflush(stdin);
         gets(rec.name);
         fflush(stdin);
-        scanf("%d%d", &rec.age, &rec.clas);
+        scanf("%d%d", &rec.phone, &rec.clas);
         fwrite(&rec, sizeof(rec), 1, fp);
     }
     rewind(fp);
 
-    printf("\nName\tAge\tClass\n");
+    printf("\nName\tphone\tClass\n");
     printf("___________________________\n");
     while (fread(&rec, sizeof(rec), 1, fp) == 1)
-        printf("%s\t%d\t%d\n", rec.name, rec.age, rec.clas);
+        printf("%s\t%d\t%d\n", rec.name, rec.phone, rec.clas);
     fclose(fp);
 
     return 0;

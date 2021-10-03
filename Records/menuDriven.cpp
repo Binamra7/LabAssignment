@@ -109,14 +109,14 @@ int main()
             gets(info.name);
             fflush(stdin);
             scanf("%d%d", &info.age, &info.grade);
-            fwrite(&info, sizeof(info), 1, fp);
+            fwrite(&info, sizeof(info), 1, fp1);
 
             fclose(fp);
             fclose(fp1);
 
             remove("student.txt");
             rename("temp.txt", "student.txt");
-            printf("\nThe record after removing:\n");
+            printf("\nThe record after updating:\n");
             printf("\nName\t\tAge\t\tGrade\n");
             printf("____________________________________\n");
             fp = fopen("student.txt", "r");

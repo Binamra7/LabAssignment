@@ -7,10 +7,8 @@ struct student
     int roll, age;
     char name[20];
 };
-
 int main()
 {
-
     int n;
     FILE *fp;
     struct student info;
@@ -25,17 +23,13 @@ int main()
         scanf("%d%d", &info.roll, &info.age);
         fwrite(&info, sizeof(info), 1, fp);
     }
-
     rewind(fp);
-
     printf("Name\t\tRoll no.\tAge\n");
     printf("_____________________________________\n\n");
-
     while (fread(&info, sizeof(info), 1, fp) == 1)
     {
-        if(info.name[0]=='s' || info.name[0]=='S')
+        if (info.name[0] == 's' || info.name[0] == 'S')
             printf("%s\t\t%d\t\t%d\t\t\n", info.name, info.roll, info.age);
-    };
-
+    };  
     return 0;
 }
